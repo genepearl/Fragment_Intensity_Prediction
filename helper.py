@@ -74,6 +74,7 @@ df calculate_mean_intensities():
   + 'precursor charge' + 'ion_type' + 'no' combination) saves them in the
   new 'mean_normalized_intensity' column and returns df without redundancy
   '''
+  
   # Reducing the noise => one normalized intensity value for the same 'petide seq' + 'precursor charge' + 'ion_type' + 'no' combination
   result = df.groupby(['peptide_sequence', 'precursor_charge', 'ion_type', 'no'])['normalized_intensity'].mean().reset_index()
   df = result
