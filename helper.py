@@ -140,7 +140,6 @@ def save_test(test_df):
   np.save("test_seq.npy", test_seq)
 
 def split_cross_val(training, n_splits):
-
   '''
   Creates cross-validation splits and returns two lists: s_train_list
   and s_valid_list
