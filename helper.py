@@ -68,7 +68,7 @@ def create_target():
     result.append(intensities)
   return result
 
-df calculate_mean_intensities():
+def calculate_mean_intensities():
   '''
   Calculates mean intensity values for each group (the same 'petide seq' 
   + 'precursor charge' + 'ion_type' + 'no' combination) saves them in the
