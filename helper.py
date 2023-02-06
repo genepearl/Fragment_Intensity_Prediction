@@ -68,6 +68,18 @@ def create_target():
     result.append(intensities)
   return result
 
+df calculate_mean_intensities():
+  '''
+  Calculates mean intensity values for each group (the same 'petide seq' 
+  + 'precursor charge' + 'ion_type' + 'no' combination) saves them in the
+  new 'mean_normalized_intensity' column and returns df without redundancy
+  '''
+  # Reducing the noise => one normalized intensity value for the same 'petide seq' + 'precursor charge' + 'ion_type' + 'no' combination
+  result = df.groupby(['peptide_sequence', 'precursor_charge', 'ion_type', 'no'])['normalized_intensity'].mean().reset_index()
+  df = result
+  df = df.rename(columns={'normalized_intensity': 'mean_normalized_intensity'})
+  return df
+
 def encode_peptides(df):
   '''
   Adds a new column to a dataframe, where peptide in string format
